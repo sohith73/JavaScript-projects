@@ -1,81 +1,96 @@
-*,*::before,*::after{
-     box-sizing: border-box;
-     padding: 0;
-     margin: 0;
-     font-family: 'poppins','san-serif';
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", "sans-serif";
 }
-.wrapper{
-     width: 100vw;
-     height: 100vh;
-     /* background-image: url(op2.png); */
-     background: radial-gradient(243.55% 153.69% at 23.48% -1.07%, #EBF3F5 6.99%, #C5E2F0 100%);
 
-     background-position:center;
-     background-size: cover;
-     display: grid;
-     place-items: center;
+.wrapper {
+  height: 100vh;
+  width: 100vw;
+  background: radial-gradient(243.55% 153.69% at 23.48% -1.07%, #EBF3F5 6.99%, #C5E2F0 100%);
+  background-size: cover;
+  background-position: center;
+  display: grid;
+  place-items: center;
 }
-.game-info{
-     color: black;
-     position: absolute;
-     top : 3rem;
-     left: 50%;
-     transform: translate(-50%);
-     background-color: rgb(0,225,0,0.15);
-     border-radius: 1rem;
-     border: 1px solid rgba(0,255,0,0.25);
-     padding: 0.5rem 3rem;
-     text-align: center;
+
+.gameInfo{
+    background-color: rgb(0,225,0,0.15);
+    border: 1px solid rgba(0,255,0,0.25);
+    border-radius: 1rem;
+    padding: 0.3rem 3rem;
+    position: absolute;
+    top: 3rem;
+    left: 50%;
+    transform: translateX(-50%);
+    color: black;
+    backdrop-filter: blur(7px);
 }
-.tic-tac-to{
-     width: 90%;
-     max-width: 20rem;
-     background-color: rgb(0,225,0,0.15);
-     border-radius: 1rem;
-     border: 1px solid rgba(0,255,0,0.25);
-     padding: 2rem;
-     display: grid;
-     grid-template-columns: repeat(3,1fr);
-     aspect-ratio: 1/1;
+
+.gameGrid {
+  display: grid;
+  place-items: center;
+  grid-template-columns: repeat(3, 1fr);
+  padding: 2rem;
+  background-color: rgb(0,225,0,0.15);
+  border-radius: 1rem;
+  width: 90%;
+  max-width: 20rem; 
+  border: 1px solid rgba(0,255,0,0.25);
+  backdrop-filter: blur(7px);
+  aspect-ratio: 1/1;
 }
+
 .box{
-     position: relative;
-     width: 100%;
-     aspect-ratio: 1/1;
-     cursor: pointer;
-     font-size: 3rem;
-     color: orange;
-     display: flex;
-     justify-content: center;
-     align-items: center;
+    color: orange;
+    /* position: relative; */
+    aspect-ratio: 1/1;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    font-size: 3rem;
+    width: 100%;
+    transition: all 150ms ease-in-out;
 }
-.box1,.box2,.box4,.box5{
-     border-right: 2px solid black;
-     border-bottom:2px solid black;
-}
-.box3,.box6{
-     border-bottom: 2px solid black;
-}
-.box7,.box8{
-     border-right: 2px solid black;
-}
-.btn{
-     color: black;
-     position: absolute;
-     bottom: 3rem;
-     left: 50%;
-     transform: translateX(-50%);
-     background-color: rgb(0,225,0,0.15);
-     border-radius: 1rem;
-     border: 1px solid rgba(0,255,0,0.25);
-     padding: 0.6rem 2rem;
-     cursor: pointer;
-     display: none;
-}
-.btn.active{
-     display: flex;
 
+.box1,.box2,.box5,.box4{
+    border-bottom: 2px solid black;
+    border-right: 2px solid black;
 }
-.win{
-     background-color: rgba(0, 225,0,0.3);;
+
+.box3,.box6{
+    border-bottom: 2px solid black;
+}
+
+.box7,.box8{
+    border-right: 2px solid black;
+}
+
+.win {
+    background-color: rgba(2, 199, 2, 0.619);
+}
+
+.btn{
+    position: absolute;
+    bottom: 3rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgb(0,225,0,0.15);
+    border: 1px solid rgba(0,255,0,0.25);
+    color: black;
+    padding: 0.5rem 2rem;
+    border-radius:1rem;
+    cursor: pointer;
+    backdrop-filter: blur(7px);
+    transition: all 150ms ease-in-out;
+    pointer-events: none;
+    opacity: 0;
+}
+
+.btn.active{
+    opacity: 1;
+    pointer-events: all;
 }
